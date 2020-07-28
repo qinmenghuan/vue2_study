@@ -153,10 +153,16 @@ export function defineReactive (
     val = obj[key]
   }
 
+  // 
   let childOb = !shallow && observe(val)
+
+  // 监听对象属性的get，set
   Object.defineProperty(obj, key, {
+    // 允许循环遍历属性
     enumerable: true,
+    // 允许自由删除对象属性
     configurable: true,
+
     get: function reactiveGetter () {
       const value = getter ? getter.call(obj) : val
       if (Dep.target) {

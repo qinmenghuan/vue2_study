@@ -35,6 +35,7 @@ const resolve = p => {
   }
 }
 
+// 所有vue build构建版本
 const builds = {
   // Runtime only (CommonJS). Used by bundlers e.g. Webpack & Browserify
   'web-runtime-cjs-dev': {
